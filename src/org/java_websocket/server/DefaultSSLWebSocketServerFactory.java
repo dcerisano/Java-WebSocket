@@ -25,7 +25,7 @@ public class DefaultSSLWebSocketServerFactory implements WebSocketServer.WebSock
 		this( sslContext, Executors.newSingleThreadScheduledExecutor() );
 	}
 
-	public DefaltSSLWebSocketServerFactory( SSLContext sslContext , ExecutorService exec ) {
+	public DefaultSSLWebSocketServerFactory( SSLContext sslContext , ExecutorService exec ) {
 		if( sslContext == null || exec == null )
 			throw new IllegalArgumentException();
 		this.sslcontext = sslContext;
