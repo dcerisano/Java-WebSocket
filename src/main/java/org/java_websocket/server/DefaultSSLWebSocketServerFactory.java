@@ -25,7 +25,7 @@ public class DefaultSSLWebSocketServerFactory implements WebSocketServer.WebSock
 		this( sslContext, Executors.newSingleThreadScheduledExecutor() );
 	}
 
-	public DefaultSSLWebSocketServerFactory( SSLContext sslContext , ExecutorService exec ) {
+	public DefaltSSLWebSocketServerFactory( SSLContext sslContext , ExecutorService exec ) {
 		if( sslContext == null || exec == null )
 			throw new IllegalArgumentException();
 		this.sslcontext = sslContext;
@@ -36,6 +36,7 @@ public class DefaultSSLWebSocketServerFactory implements WebSocketServer.WebSock
 	public ByteChannel wrapChannel( SocketChannel channel, SelectionKey key ) throws IOException {
 		SSLEngine e = sslcontext.createSSLEngine();
 		e.setUseClientMode( false );
+		
 		return new SSLSocketChannel2( channel, e, exec, key );
 	}
 
